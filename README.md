@@ -99,6 +99,12 @@ const text = "hellooooo";
 boldPassage(word, text);
 Expected Output: "<p><b>hello</b>oooo</p>"
 
+Test: "It should return a matching word in a b tag."
+Code:
+const word = "boy";
+const text = "bigboy";
+boldPassage(word, text);
+Expected Output: "<p>big<b>boy</b></p>"
 
 Describe: mostCommonWords()
 
