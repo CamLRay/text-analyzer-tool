@@ -9,7 +9,7 @@ function noOffensiveWords(text) {
   let error;
   swearWords.forEach(function(word) {
     if (text.includes(word)) {
-       error = "Please put a dollar in the swear jar!";
+       error = true;
     }
   });
   return error;
@@ -70,7 +70,7 @@ function boldPassage(word, text) {
   let htmlString = "<p>";
   let textArray = text.split(" ");
   textArray.forEach(function(element, index) {
-    if (word === element) {
+    if (word.includes(element)) {
       htmlString = htmlString.concat("<b>" + element + "</b>");
     } else {
       htmlString = htmlString.concat(element);
@@ -84,7 +84,7 @@ function boldPassage(word, text) {
 
 function commonWordList(passage) {
   let commonArray = mostCommonWords(passage);
-  let listArray = []
+  let listArray = [];
   commonArray.forEach(function(element){ 
   listArray.push(element.split(" ").reverse().join(": "));
 });
@@ -100,9 +100,8 @@ $(document).ready(function(){
     const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
     const frequencyOfWord = commonWordList(passage);
     const errorMessage = noOffensiveWords(passage);
-    if (errorMessage === "Please put a dollar in the swear jar!") {
-      $("#error-message").text(errorMessage);
-      
+    if (errorMessage === true) {
+      $("#error-message").text("Please put a dollar in the swear jar!");
     } else {
     $("#total-count").html(wordCount);
     $("#selected-count").html(occurrencesOfWord);
