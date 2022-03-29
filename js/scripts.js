@@ -15,8 +15,6 @@ function noOffensiveWords(text) {
   return error;
 } 
 
-console.log(noOffensiveWords("My father is a muppeteer"));
-
 // Business Logic
 
 function wordCounter(text) {
@@ -70,8 +68,8 @@ function boldPassage(word, text) {
   let htmlString = "<p>";
   let textArray = text.split(" ");
   textArray.forEach(function(element, index) {
-    if (word.includes(element)) {
-      htmlString = htmlString.concat("<b>" + element + "</b>");
+    if (element.toLowerCase().includes(word.toLowerCase())) {
+      htmlString = htmlString.concat(element.replaceAll(word, "<b>" + word + "</b>"));
     } else {
       htmlString = htmlString.concat(element);
     }
@@ -81,6 +79,8 @@ function boldPassage(word, text) {
   });
   return htmlString + "</p>";
 }
+
+
 
 function commonWordList(passage) {
   let commonArray = mostCommonWords(passage);
