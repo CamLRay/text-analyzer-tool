@@ -121,3 +121,11 @@ Test: "It should identify one of the offensive words."
 code:
 noOffensiveWords("zoinks")
 Expected Outcome: "Please put a dollar in the swear jar!"
+
+Test: "It should identify 'zoinks' in a string."
+code:
+noOffensiveWords("zoinks in a string")
+Expected Outcome: "Please put a dollar in the swear jar!"
+
+Test: "It should identify different offensive words in strings."
+code:

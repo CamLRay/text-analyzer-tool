@@ -4,13 +4,13 @@ function noInputtedWord(word, text) {
   return ((text.trim().length === 0) || (word.trim().length === 0));
 }
 
-function noOffensiveWords(word) {
-  if (word === "zoinks") {
+function noOffensiveWords(text) {
+  if (text.includes("zoinks")) {
   alert("Please put a dollar in the swear jar!")
   }
 }
 
-console.log(noOffensiveWords("zoinks"));
+console.log(noOffensiveWords("in a string"));
 
 
 
