@@ -4,6 +4,15 @@ function noInputtedWord(word, text) {
   return ((text.trim().length === 0) || (word.trim().length === 0));
 }
 
+function noOffensiveWords(word) {
+  if (word === "zoinks") {
+  alert("Please put a dollar in the swear jar!")
+  }
+}
+
+console.log(noOffensiveWords("zoinks"));
+
+
 
 // Business Logic
 
@@ -50,7 +59,7 @@ function mostCommonWords(passage) {
   return sortCount;
 }
 
-console.log(mostCommonWords("camp camp hello hello hello there crab"));
+
 
 
 // UI Logic
