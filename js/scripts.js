@@ -5,12 +5,13 @@ function noInputtedWord(word, text) {
 }
 
 function noOffensiveWords(text) {
-  if (text.includes("zoinks")) {
+  swearWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"]
+  if (text.includes()) {
   alert("Please put a dollar in the swear jar!")
   }
 }
 
-console.log(noOffensiveWords("in a string"));
+console.log(noOffensiveWords("My father is a muppeteer"));
 
 
 
