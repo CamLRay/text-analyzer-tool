@@ -5,15 +5,17 @@ function noInputtedWord(word, text) {
 }
 
 function noOffensiveWords(text) {
-  swearWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"]
-  if (text.includes()) {
-  alert("Please put a dollar in the swear jar!")
-  }
-}
+  const swearWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+  let error;
+  swearWords.forEach(function(word) {
+    if (text.includes(word)) {
+       error = "Please put a dollar in the swear jar!";
+    }
+  });
+  return error;
+} 
 
 console.log(noOffensiveWords("My father is a muppeteer"));
-
-
 
 // Business Logic
 
@@ -97,11 +99,17 @@ $(document).ready(function(){
     const wordCount = wordCounter(passage);
     const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
     const frequencyOfWord = commonWordList(passage);
+    const errorMessage = noOffensiveWords(passage);
+    if (errorMessage === "Please put a dollar in the swear jar!") {
+      $("#error-message").text(errorMessage);
+      
+    } else {
     $("#total-count").html(wordCount);
     $("#selected-count").html(occurrencesOfWord);
     $("#bolded-passage").html(boldPassage(word, passage));
     $("#common-words").append("<li>"+ frequencyOfWord[0]+ "</li>");
     $("#common-words").append("<li>"+ frequencyOfWord[1]+ "</li>");
     $("#common-words").append("<li>"+frequencyOfWord[2]+"</li>");
+    }
   });
 });
